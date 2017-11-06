@@ -1,4 +1,3 @@
 # study-vuejs
 
-
-eyes on #vuefloripa
+my study on vue
