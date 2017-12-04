@@ -7,16 +7,15 @@
     <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-    <div id="vue-app">
-        <div id="bag" v-bind:class="{burst:ended}"></div>
-
-        <div id="bag-health">
-            <div v-bind:style="{ width: health + '%' }">{{health}}</div>
-        </div>
-        <div id="controls">
-            <button v-on:click="punch" v-show="!ended">Punch</button>
-            <button v-on:click="restart">Restart</button>
-        </div>
+    <h1>Multiple Vue Instances</h1>
+    <div id="vue-app-one">
+        <h2>{{ title }}</h2>
+        <p>{{ greet }}</p>
+    </div>
+    <div id="vue-app-two">
+        <h2>{{ title }}</h2>
+        <p>{{ greet }}</p>
+        <button v-on:click="changeTitle()">Change App One Title</button>
     </div>
     <script src="app.js"></script>
 </body>
