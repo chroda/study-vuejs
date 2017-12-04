@@ -13,12 +13,12 @@ export default {
   },
   data () {
     return {
-      title:'Vue Ninjas'
+      // title:'Vue Ninjas'
     }
   },
   methods:{
     changeTitle:function(){
-      this.title = 'Vue Wizards'
+      this.$emit('changeTitle','Vue Wizards');
     }
   }
 }
