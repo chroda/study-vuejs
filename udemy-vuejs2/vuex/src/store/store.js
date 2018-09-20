@@ -30,15 +30,15 @@ export const store =  new Vuex.Store({
     decrement: ({ commit }, payload) => {
       commit('decrement', payload);
     },
-    asyncIncrement: ({ commit }) => {
+    asyncIncrement: ({ commit }, payload) => {
       setTimeout(() => {
-        commit('increment');
-      },1000);
+        commit('increment', payload.by);
+      }, payload.duration);
     },
-    asyncDecrement: ({ commit }) => {
+    asyncDecrement: ({ commit }, payload) => {
       setTimeout(() => {
-        commit('decrement');
-      },1000);
+        commit('decrement', payload.by);
+      }, payload.duration);
     }
   }
 
