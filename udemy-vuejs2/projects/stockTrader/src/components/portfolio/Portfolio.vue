@@ -1,5 +1,5 @@
 <template>
   <h1>
-    The Stocks - Stock Component
+    The Portifolio Component
   </h1>
 </template>
