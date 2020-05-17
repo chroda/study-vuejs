@@ -1,6 +1,6 @@
 # real-world-nuxt
 
-> My scrumtrulescent Nuxt.js project
+> My rad Nuxt.js project
 
 ## Build Setup
 
