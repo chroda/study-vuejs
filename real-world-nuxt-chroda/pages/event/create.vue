@@ -7,7 +7,7 @@
 export default {
   head() {
     return {
-      title: 'Create an Event',
+      title: 'Create Listing',
       meta: [
         {
           hid: 'description',
