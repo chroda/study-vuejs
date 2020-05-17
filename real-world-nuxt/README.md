@@ -1,22 +1,22 @@
 # real-world-nuxt
 
-> My rad Nuxt.js project
+> My tremendous Nuxt.js project
 
 ## Build Setup
 
-```bash
+``` bash
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ yarn run dev
 
 # build for production and launch server
-$ yarn build
+$ yarn run build
 $ yarn start
 
 # generate static project
-$ yarn generate
+$ yarn run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
