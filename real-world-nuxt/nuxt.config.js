@@ -1,3 +1,4 @@
+import EventService from './services/EventService.js'
 const pkg = require('./package')
 
 module.exports = {
@@ -19,7 +20,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#39b982' },
 
   /*
   ** Global CSS
@@ -62,6 +63,15 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+  generate: {
+    routes: () => {
+      return EventService.getEvents().then(response => {
+        return response.data.map(event => {
+          return '/event/' + event.id
+        })
+      })
     }
   }
 }
