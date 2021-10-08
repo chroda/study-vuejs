@@ -1,8 +1,8 @@
-version: '3.8'
+version: "3.8"
 services:
   backend:
     image: antoniopapa1991/backend
-    environment: 
+    environment:
       DB_HOST: db
       DB_DATABASE: admin
       DB_USERNAME: root
@@ -15,10 +15,10 @@ services:
   db:
     image: mysql:5.7.22
     restart: always
-    environment: 
+    environment:
       MYSQL_DATABASE: admin
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
-    volumes: 
+    volumes:
       - .dbdata:/var/lib/mysql
