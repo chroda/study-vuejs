@@ -1,24 +1,6 @@
 <template>
-  <Nav />
-
-  <div class="container-fluid">
-    <div class="row">
-      <Menu />
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <router-view />
-      </main>
-    </div>
-  </div>
+  <router-view />
 </template>
-
-<script>
-import Nav from "@/components/Nav";
-import Menu from "@/components/Menu";
-
-export default {
-  components: { Nav, Menu }
-};
-</script>
 
 <style>
 body {
