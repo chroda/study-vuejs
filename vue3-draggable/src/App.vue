@@ -1,30 +1,92 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { ref } from "vue";
+
+export default {
+  setup() {
+    const items = ref([
+      { id: 0, title: "Item A", list: 1 },
+      { id: 1, title: "Item B", list: 1 },
+      { id: 2, title: "Item C", list: 2 },
+    ]);
+
+    const getList = (list) => {
+      return items.value.filter((item) => item.list == list);
+    };
+
+    const startDrag = (event, item) => {
+      console.log(item);
+      event.dataTransfer.dropEffect = "move";
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("itemID", item.id);
+    };
+
+    const onDrop = (event, list) => {
+      const itemID = event.dataTransfer.getData("itemID");
+      const item = items.value.find((item) => item.id == itemID);
+      item.list = list;
+    };
+
+    return {
+      getList,
+      startDrag,
+      onDrop,
+    };
+  },
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div
+    class="drop-zone"
+    @drop="onDrop($event, 1)"
+    @dragenter.prevent
+    @dragover.prevent
+  >
+    <div
+      v-for="item in getList(1)"
+      :key="item.id"
+      class="drag-el"
+      draggable="true"
+      @dragstart="startDrag($event, item)"
+    >
+      {{ item.title }}
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div
+    class="drop-zone"
+    @drop="onDrop($event, 2)"
+    @dragenter.prevent
+    @dragover.prevent
+  >
+    <div
+      v-for="item in getList(2)"
+      :key="item.id"
+      class="drag-el"
+      draggable="true"
+      @dragstart="startDrag($event, item)"
+    >
+      {{ item.title }}
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.drop-zone {
+  width: 50%;
+  margin: 50px auto;
+  background-color: beige;
+  padding: 10px;
+  min-height: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.drag-el {
+  background-color: lightblue;
+  color: white;
+  padding: 5px;
+  margin-bottom: 10px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.drag-el:last-of-type {
+  margin-bottom: 0;
 }
 </style>
