@@ -40,7 +40,7 @@
     background-color: #eee;
   }
   50% {
-    background-color: #dfdfdf;
+    background-color: #e9e9e9;
   }
   100% {
     background-color: #eee;

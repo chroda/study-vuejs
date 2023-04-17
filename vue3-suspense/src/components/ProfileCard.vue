@@ -9,7 +9,7 @@ const loadUserData = async () => {
         pic: "https://cdn-images-1.medium.com/fit/c/100/100/2*EcZb9cndrhTF7_d74dv2Fg.png",
         bio: "I run a VueJS community over at https://learnvue.co, develop web sites, and post whatever I find cool on the Internet.",
       });
-    }, 2000);
+    }, 10000);
   });
 };
 export default {
