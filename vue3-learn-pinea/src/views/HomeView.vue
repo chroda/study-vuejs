@@ -1,21 +1,26 @@
 <template>
   <div class="home">
     <div class="count">
-      {{ countStore.count }}
+      {{ storeCounter.count }}
     </div>
     <div class="buttons">
-      <button @click="countStore.decreaseCount">-</button>
-      <button @click="countStore.increaseCount">+</button>
+      <button @click="storeCounter.decreaseCount">-</button>
+      <button @click="storeCounter.increaseCount">+</button>
     </div>
     <hr />
-    <div>This counter is {{ countStore.oddOrEven }}</div>
+    <div>This counter is {{ storeCounter.oddOrEven }}</div>
+    <hr />
+    <div>
+      <h3>Edit counter:</h3>
+      <input v-model="storeCounter.count" type="number" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { useCounterStore } from "@/stores/counter";
 
-const countStore = useCounterStore();
+const storeCounter = useCounterStore();
 </script>
 
 <style>
